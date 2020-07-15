@@ -139,7 +139,11 @@
     </div>
     <div class="uk-container uk-container-center">
         <h1>Cao</h1>
-
+        <button>
+            <a href='/download'> 
+                <span class="light-black" uk-icon="download"></span> Preuzmi
+            </a>   
+        </button>
     </div>
 
 </body>
