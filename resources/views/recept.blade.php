@@ -165,6 +165,7 @@
             
             @if($recipe->comments && sizeof($recipe->comments) > 0)
             @foreach($recipe->comments as $comment)
+            @if($comment->active == true)
         <article class="uk-comment uk-comment-primary" style="background-color: mintcream; opacity: 0.8; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%;">
             <header class="uk-grid-medium uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
@@ -181,6 +182,7 @@
                 <p>{{$comment->text}}   </p>
             </div>
         </article>
+        @endif
         @endforeach
         @endif
         @if(Auth::check())

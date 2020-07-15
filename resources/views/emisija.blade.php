@@ -4,7 +4,7 @@
 <head>
     <title>Emisija o kuvanju</title>
     <meta charset="utf-8">
-<meta name="csrf-token" content="{{@csrf_token}}">
+<meta name="csrf-token" content="{{@csrf_token()}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('css/uikit.min.css')}}" />
     <link rel="stylesheet" href="{{asset('css/main.css')}}" />
@@ -163,6 +163,7 @@
 
         @if($video->comments && sizeof($video->comments) > 0)
             @foreach($video->comments as $comment)
+            @if($comment->active == true)
         <article class="uk-comment uk-comment-primary" style="background-color: mintcream; opacity: 0.8; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%;">
             <header class="uk-grid-medium uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
@@ -179,6 +180,7 @@
                 <p>{{$comment->text}}   </p>
             </div>
         </article>
+        @endif
         @endforeach
         @endif
         @if(Auth::check())
@@ -192,14 +194,14 @@
                             <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{Auth::user()->name}}</a></h4>
                         </div>
                     </header>
-                    <form action="/add-comment" method="post">
+                    <form >
                         @csrf
-                        <input type="hidden" name="id" value="{{$video->id}}">
-                        <input type="hidden" name="type" value="video">
+                        <input type="hidden" id="idComment" name="idComment" value="{{$video->id}}">
+                        <input type="hidden" name="type" id="typeComment"  value="video">
                         <div class="uk-comment-body">
-                            <textarea name="text" id="" cols="30" rows="3" class="uk-textarea"></textarea> 
+                            <textarea name="text" id="textComment" cols="30" rows="3" class="uk-textarea"></textarea> 
                         </div>
-                        <button class="uk-button uk-button-primary uk-margin-top" type="submit"><span uk-icon="icon: plus-circle"></span> Add new comment</button>
+                        <button class="uk-button uk-button-primary uk-margin-top" onclick="commentCreate()" type="button"><span uk-icon="icon: plus-circle"></span> Add new comment</button>
                     </form>
                 
                 </article>
@@ -304,6 +306,34 @@
                 toast('error', String(message[Object.keys(message)[0]]));
             }) 
         }
+        function commentCreate() {
 
+            var data = new FormData;
+            data.append('id', $('#idComment').val());
+            data.append('type', $('#typeComment').val());
+            data.append('text', $('#textComment').val());
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: '/add-comment',
+                method: 'post',
+                data: data,
+                processData: false,
+                contentType: false
+            })
+            .done(function(response) {
+                toast('success', 'Uspjesno ste dodali komentar!');
+                setTimeout(location.reload.bind(location), 2000);
+            })
+            .fail(function(returnData) {
+                var message = JSON.parse(returnData.responseText).errors;
+                toast('error', String(message[Object.keys(message)[0]]));
+            }) 
+}
     </script>
 </html>

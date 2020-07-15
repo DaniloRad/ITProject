@@ -159,6 +159,7 @@ class WebsiteController extends Controller
 
     }
     public function recipeView($id){
+        
         $recipe = Recipe::whereActive(true)->whereId($id)->first();
         return view('recept', compact('recipe'));
     }
