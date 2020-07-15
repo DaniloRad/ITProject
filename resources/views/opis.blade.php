@@ -4,18 +4,17 @@
 <head>
     <title>Emisija o kuvanju</title>
     <meta charset="utf-8">
-    <meta name="csrf-token" content="{{@csrf_token()}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('css/uikit.min.css')}}" />
     <link rel="stylesheet" href="{{asset('css/main.css')}}" />
 
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abel" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lancelot" />
     
-    <link rel="stylesheet" href="{{asset('bootstrap-4.min.css')}}">
-</head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abel" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lancelot" />
+<link rel="stylesheet" href="{{asset('bootstrap-4.min.css')}}">
 
-<body class="bg-def ">
+</head>
+<body class="bg-def uk-height-viewport ">
     <div id="modal-user-settings" uk-modal>
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -53,7 +52,7 @@
     </div>
     <div class="header">
 
-        <nav class="uk-navbar-container uk-margin  uk-margin-remove-vertical" uk-navbar>
+        <nav class="uk-navbar-container uk-margin uk-margin-remove-vertical" uk-navbar>
             <div class="uk-navbar-left">
 
                 <a href="/" class="brand-link">
@@ -138,38 +137,9 @@
 
         </nav>
     </div>
-
     <div class="uk-container uk-container-center">
-        <div uk-grid class="uk-flex-center width-1-1 uk-padding uk-margin-auto">
+        <h1>Cao</h1>
 
-
-            @if($result && sizeof($result) > 0)
-                @foreach($result as $v)
-            <div class="uk-width-1-1@xs uk-width-1-1@m uk-child-width-1-1 blog-box " uk-grid>
-
-                <div class="uk-width-1-1@xs uk-width-2-5@s uk-height-medium uk-background-cover uk-border-rounded" data-src="{{asset($v->image)}}"  uk-img>
-
-                </div>
-                <div class="uk-width-expand">
-                    <h2>{{$v->name}}</h2>
-                    <div class="text-small">
-                    <span class="uk-badge">{{$v->category->name}}</span>
-                        <span uk-icon="icon: calendar"></span>
-                    <span>{{\Carbon\Carbon::parse($v->created_at)->format('d.m.Y')}}</span>
-                        <span uk-icon="icon: comment"></span>
-                        <span>{{count($v->comments)}}</span>
-
-                    </div>
-                    <p class="text-normal">{!!Str::limit($v->description, 250)!!}</p>
-                    <a class="uk-button uk-button-text" href="/emisija/{{$v->id}}">Read more</a>
-
-                </div>
-
-            </div>
-                @endforeach
-            @endif
-            {{$result->links()}}
-        </div>
     </div>
 
 </body>
@@ -182,6 +152,7 @@
         var cw = $('.dynamical-small-img').width();
         $('.dynamical-small-img').css({'height':cw+'px'});
         })
+        console.log("test")
         window.onload=main
         function main () {
             $(".uk-dropdown").click(function(){
@@ -189,6 +160,27 @@
             }) 
         }
     </script>
+<script>
+    window.onload=main
+    function main(){
+    $(".db-search").click(function(){
+        $(".browser-filters").addClass("uk-hidden");
+
+    })
+    $(".web-search").click(function(){
+        $(".browser-filters").toggleClass("uk-hidden");
+        $('.db-filters').addClass('uk-hidden');
+    })
+    $('.db-filter').click(function() {
+        $('.db-filters').toggleClass('uk-hidden');
+    })
+    $(".search-type-input").keyup(function(e){
+        if(this.value.length>3){
+
+        }
+    })
+    }    
+</script>
     <script src="{{asset('sweetalert2.min.js')}}"></script>
 
     <script>

@@ -231,6 +231,9 @@ class WebsiteController extends Controller
         }
     }
 
+    public function description() {
+        return view('opis');
+    }
     public function downloadDocument() {
 
         return response()->download('putanjna do fajla');

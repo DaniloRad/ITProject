@@ -24,6 +24,7 @@ Route::get('/recept/{id}', 'WebsiteController@recipeView');
 Route::get('/emisija/{id}', 'WebsiteController@videoView');
 Route::post('/add-comment', 'WebsiteController@createComment');
 Route::get('/kategorija/{type}', 'WebsiteController@getByCategory');
+Route::get('/opis', 'WebsiteController@description');
 
 Auth::routes();
 

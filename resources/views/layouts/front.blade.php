@@ -79,6 +79,9 @@
                     <li>
                         <a href="/pretraga">Pretraga</a>
                     </li>
+                    <li>
+                        <a href="/opis">Opis</a>
+                    </li>
                 </ul>
             </div>
             
