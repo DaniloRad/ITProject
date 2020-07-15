@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abel" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lancelot" />
     <link rel="stylesheet" href="{{asset('bootstrap-4.min.css')}}">
-
 </head>
 
 <body>
