@@ -51,7 +51,7 @@
     </div>
     <div class="header">
 
-        <nav class="uk-navbar-container uk-margin  text-white uk-margin-remove-vertical" uk-navbar>
+        <nav class="uk-navbar-container uk-margin  uk-margin-remove-vertical" uk-navbar>
             <div class="uk-navbar-left">
 
                 <a href="/" class="brand-link">
