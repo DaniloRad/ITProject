@@ -131,7 +131,7 @@
         @if($videos && sizeof($videos) > 0)
         @foreach($videos as $key => $video)
 
-<div uk-grid>
+    <div uk-grid>
         <div class="uk-width-1-1@xs uk-width-2-5@s uk-height-medium uk-background-cover uk-border-rounded" data-src="{{asset($video->image)}}"  uk-img></div>
             <div class="uk-width-expand">
             <h2>{{ $video->name }}</h2>
@@ -179,7 +179,6 @@
                             <span>{{$t->comments}}</span>
                         </div>
                         <a class="uk-button uk-button-text" href="/recept/{{$t->id}}">Read more</a>
-                        dynamical-small-img
                     </div>
                 </div>
                     @endforeach

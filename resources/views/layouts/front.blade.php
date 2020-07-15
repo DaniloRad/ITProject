@@ -142,19 +142,13 @@
 
     <script defer>
      $(window).on("load resize", function () {
-        console.log("tets")
-        set
         const dsi=$('.dynamical-small-img').parent();
-        console.log(dsi)
-        console.log(dsi.width())
-        console.log(dsi.height())
 
         var cw = dsi.width()
         var ch = dsi.height()
         let minC=Math.min(cw,ch);
         $('.dynamical-small-img').css({'height':minC+'px','width':minC+'px'});
         }) 
-        console.log("test")
         $(".uk-dropdown").click(function(){
                 UIkit.dropdown($(".uk-dropdown")).hide(0);
             }) 
