@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lancelot" />
 
 </head>
-<body class="bg-def ">
+<body class="bg-def uk-height-viewport ">
     <div id="modal-user-settings" uk-modal>
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>

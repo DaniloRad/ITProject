@@ -179,7 +179,6 @@
                             <span>{{$t->comments}}</span>
                         </div>
                         <a class="uk-button uk-button-text" href="/recept/{{$t->id}}">Read more</a>
-                        dynamical-small-img
                     </div>
                 </div>
                     @endforeach
