@@ -142,7 +142,9 @@
 
     <script defer>
      $(window).on("load resize", function () {
+      
         const dsi=$('.dynamical-small-img').parent();
+        
 
         var cw = dsi.width()
         var ch = dsi.height()
