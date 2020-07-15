@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/uikit.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <script src="../js/uikit.min.js"></script>
+    <script src="../js/uikit-icons.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Abel" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lancelot" />
+<script>
+    window.onload=main
+    function main(){
+    $(".db-search").click(function(){
+        $(".browser-filters").addClass("uk-hidden");
+
+    })
+    $(".web-search").click(function(){
+        $(".browser-filters").toggleClass("uk-hidden");
+        
+    })
+    $(".search-type-input").keyup(function(e){
+        if(this.value.length>3){
+
+        }
+    })
+    }    
+</script>
+</head>
+<div id="offcanvas-filters" uk-offcanvas="mode: reveal; overlay: true">
+    <div class="uk-offcanvas-bar">
+        <fieldset class="uk-fieldset">
+
+    
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Input">
+            </div>
+    
+            <div class="uk-margin">
+                <select class="uk-select">
+                    <option>Option 01</option>
+                    <option>Option 02</option>
+                </select>
+            </div>
+    
+            <div class="uk-margin">
+                <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+            </div>
+    
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-radio" type="radio" name="radio2" checked> A</label>
+                <label><input class="uk-radio" type="radio" name="radio2"> B</label>
+            </div>
+    
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-checkbox" type="checkbox" checked> A</label>
+                <label><input class="uk-checkbox" type="checkbox"> B</label>
+            </div>
+    
+            <div class="uk-margin">
+                <input class="uk-range" type="range" value="2" min="0" max="10" step="0.1">
+            </div>
+    
+        </fieldset>
+    </div>
+</div>
+<body class="bg-def ">
+
+    <div class="header">
+
+        <nav class="uk-navbar-container uk-margin  text-white uk-margin-remove-vertical" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <a class="uk-navbar-item uk-logo" href="#">Logo</a>
+
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="./pages/login.html">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                            Features
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="uk-navbar-center">
+                <div class="uk-navbar-item">
+                    <div>Some <a href="#">Link</a></div>
+                </div>
+            </div>
+            <div class="uk-navbar-right">
+
+                <div class="uk-navbar-item">
+                    <form action="javascript:void(0)">
+                        <span class="text-white" uk-icon="icon: search"></span>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </nav>
+    </div>
+    <div>
+
+    <div class="uk-container uk-container-center">
+        <div class="search-widgetc uk-padding">
+           
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-radio db-search" type="radio" name="search-type" checked> Pretraga u bazi</label>
+                <label><input class="uk-radio web-search" type="radio" name="search-type"> Pretraga primjenom pretrazivaca</label>
+            </div>
+            
+            <div class="browser-filters uk-hidden">
+                <label><input class="uk-radio google-search" type="radio" name="web-search-type" checked> Google</label>
+                <label><input class="uk-radio yahpp-search" type="radio" name="web-search-type">Yahoo</label>
+                <label><input class="uk-radio bing-search" type="radio" name="web-search-type" > Bing</label>
+            </div>
+
+            <div class="uk-margin uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: search"></span>
+                <input class="uk-input uk-form-large search-type-input" type="text" placeholder="Pretrazi...">
+            </div>
+            <button class="uk-button uk-button-default uk-margin-small-right uk-display-block" type="button" uk-toggle="target: #offcanvas-filters"> <span uk-icon="settings"></span> Filters</button>
+
+        </div>
+        <div uk-grid class="uk-flex-center width-1-1 uk-padding uk-margin-auto search-widget-results">
+            <div class="uk-width-1-1@xs uk-width-1-1@m uk-child-width-1-1 blog-box " uk-grid>
+
+                <div class="uk-width-1-1@xs uk-width-2-5@s uk-height-medium uk-background-cover uk-border-rounded" data-src="./imgs/1.jpg"  uk-img>
+
+                </div>
+                <div class="uk-width-expand">
+                    <h2>Ovo su one sarme</h2>
+                    <div class="text-small">
+                        <span class="uk-badge">Glavno jelo</span>
+                        <span uk-icon="icon: calendar"></span>
+                        <span>12.03.2020.</span>
+                        <span uk-icon="icon: comment"></span>
+                        <span>22</span>
+
+                    </div>
+                    <p class="text-normal">O sarmama nesto kratko......It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                    <a class="uk-button uk-button-text" href="#">Read more</a>
+
+                </div>
+
+
+            </div>
+            <div class="uk-width-1-1@xs uk-width-1-1@m uk-child-width-1-1 blog-box " uk-grid>
+
+                <div class="uk-width-1-1@xs uk-width-2-5@s uk-height-medium uk-background-cover uk-border-rounded" data-src="./imgs/1.jpg"  uk-img>
+
+                </div>
+                <div class="uk-width-expand">
+                    <h2>Ovo su one sarme</h2>
+                    <div class="text-small">
+                        <span class="uk-badge">Glavno jelo</span>
+                        <span uk-icon="icon: calendar"></span>
+                        <span>12.03.2020.</span>
+                        <span uk-icon="icon: comment"></span>
+                        <span>22</span>
+
+                    </div>
+                    <p class="text-normal">O sarmama nesto kratko......It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                    <a class="uk-button uk-button-text" href="#">Read more</a>
+
+                </div>
+
+
+            </div>
+            <div class="uk-width-1-1@xs uk-width-1-1@m uk-child-width-1-1 blog-box " uk-grid>
+
+                <div class="uk-width-1-1@xs uk-width-2-5@s uk-height-medium uk-background-cover uk-border-rounded" data-src="./imgs/1.jpg"  uk-img>
+
+                </div>
+                <div class="uk-width-expand">
+                    <h2>Ovo su one sarme</h2>
+                    <div class="text-small">
+                        <span class="uk-badge">Glavno jelo</span>
+                        <span uk-icon="icon: calendar"></span>
+                        <span>12.03.2020.</span>
+                        <span uk-icon="icon: comment"></span>
+                        <span>22</span>
+
+                    </div>
+                    <p class="text-normal">O sarmama nesto kratko......It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                    <a class="uk-button uk-button-text" href="#">Read more</a>
+
+                </div>
+
+
+            </div>
+            <div class="uk-width-1-1@xs uk-width-1-1@m uk-child-width-1-1 blog-box " uk-grid>
+
+                <div class="uk-width-1-1@xs uk-width-2-5@s uk-height-medium uk-background-cover uk-border-rounded" data-src="./imgs/1.jpg"  uk-img>
+
+                </div>
+                <div class="uk-width-expand">
+                    <h2>Ovo su one sarme</h2>
+                    <div class="text-small">
+                        <span class="uk-badge">Glavno jelo</span>
+                        <span uk-icon="icon: calendar"></span>
+                        <span>12.03.2020.</span>
+                        <span uk-icon="icon: comment"></span>
+                        <span>22</span>
+
+                    </div>
+                    <p class="text-normal">O sarmama nesto kratko......It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                    <a class="uk-button uk-button-text" href="#">Read more</a>
+
+                </div>
+
+
+            </div>
+            <div class="uk-width-1-1@xs uk-width-1-1@m uk-child-width-1-1 blog-box " uk-grid>
+
+                <div class="uk-width-1-1@xs uk-width-2-5@s uk-height-medium uk-background-cover uk-border-rounded" data-src="./imgs/1.jpg"  uk-img>
+
+                </div>
+                <div class="uk-width-expand">
+                    <h2>Ovo su one sarme</h2>
+                    <div class="text-small">
+                        <span class="uk-badge">Glavno jelo</span>
+                        <span uk-icon="icon: calendar"></span>
+                        <span>12.03.2020.</span>
+                        <span uk-icon="icon: comment"></span>
+                        <span>22</span>
+
+                    </div>
+                    <p class="text-normal">O sarmama nesto kratko......It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                    <a class="uk-button uk-button-text" href="#">Read more</a>
+
+                </div>
+
+
+            </div>
+            <ul class="uk-pagination uk-flex-center" uk-margin>
+                <li><a href="#"><span uk-pagination-previous></span></a></li>
+                <li><a href="#">1</a></li>
+                <li class="uk-disabled"><span>...</span></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li class="uk-active"><span>7</span></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#"><span uk-pagination-next></span></a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

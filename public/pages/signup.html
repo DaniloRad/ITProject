@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/uikit.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+
+    <script src="../js/uikit.min.js"></script>
+    <script src="../js/uikit-icons.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
+        <div class="uk-width-1-1">
+            <div class="uk-container">
+                <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+                    <div class="uk-width-1-1@m">
+                        <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+                            <h3 class="uk-card-title uk-text-center">Welcome!</h3>
+                            <form>
+                                <div class="uk-margin">
+                                    <div class="uk-inline uk-width-1-1">
+                                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                        <input  placeholder="Ime" class="uk-input uk-form-large" type="text">	
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-inline uk-width-1-1">
+                                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                        <input placeholder="Email" class="uk-input uk-form-large" type="text">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-inline uk-width-1-1">
+                                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                        <input placeholder="Password" class="uk-input uk-form-large" type="password">	
+                                    </div>
+                                </div>
+                                <div class="js-upload" uk-form-custom>
+                                    <input placeholder="Slika" type="file" multiple>
+                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+                                </div>
+                                <script>
+
+                                    var bar = document.getElementById('js-progressbar');
+                                
+                                    UIkit.upload('.js-upload', {
+                                
+                                        completeAll: function () {                                
+                                            alert('Upload Completed');
+                                        }
+                                
+                                    });
+                                
+                                </script>
+                                
+                                <div class="uk-margin" tabindex="0">
+                                    <button  class="uk-button uk-button-default-rose uk-button-large uk-width-1-1">Register</button>
+                                </div>
+                                <div class="uk-text-small uk-text-center">
+                                    Already registered? <a href="./login.html">Login</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>
