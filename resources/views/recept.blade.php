@@ -194,14 +194,14 @@
                             <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{Auth::user()->name}}</a></h4>
                         </div>
                     </header>
-                    <form action="/add-comment" method="post">
+                    <form >
                         @csrf
-                        <input type="hidden" name="id" value="{{$recipe->id}}">
-                        <input type="hidden" name="type" value="recipe">
+                        <input type="hidden" id="idComment"name="idComment" value="{{$recipe->id}}">
+                        <input type="hidden" name="type" id="typeComment" value="recipe">
                         <div class="uk-comment-body">
-                            <textarea name="text" id="" cols="30" rows="3" class="uk-textarea"></textarea> 
+                            <textarea name="text" id="textComment" cols="30" rows="3" class="uk-textarea"></textarea> 
                         </div>
-                        <button class="uk-button uk-button-primary uk-margin-top" type="submit"><span uk-icon="icon: plus-circle"></span> Add new comment</button>
+                        <button class="uk-button uk-button-primary uk-margin-top" onclick="commentCreate()" type="button"><span uk-icon="icon: plus-circle"></span> Add new comment</button>
                     </form>
                 
                 </article>
@@ -307,5 +307,34 @@
             }) 
         }
 
+        function commentCreate() {
+
+            var data = new FormData;
+            data.append('id', $('#idComment').val());
+            data.append('type', $('#typeComment').val());
+            data.append('text', $('#textComment').val());
+
+            $.ajaxSetup({
+                 headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: '/add-comment',
+                method: 'post',
+                data: data,
+                processData: false,
+                contentType: false
+            })
+            .done(function(response) {
+                toast('success', 'Uspjesno ste dodali komentar!');
+                setTimeout(location.reload.bind(location), 2000);
+            })
+            .fail(function(returnData) {
+                var message = JSON.parse(returnData.responseText).errors;
+                toast('error', String(message[Object.keys(message)[0]]));
+            }) 
+        }
     </script>
 </html>

@@ -174,7 +174,11 @@ class WebsiteController extends Controller
             'id' => 'required',
             'type' => 'required',
             'text' => 'required|string|max:500'
-        ]);
+        ],
+    [
+        'text.required' => 'Morate unijeti tekst komentara',
+        'text.max' => 'Komentar moze sadrzati najvise 500 karaktera.'
+    ]);
 
         switch($request->type) {
             case 'video':
@@ -184,7 +188,7 @@ class WebsiteController extends Controller
                     'video_id' => $request->id
                 ]);
 
-                return redirect()->back();
+                return response('success', 200);
             break;
 
             case 'recipe': 
@@ -194,7 +198,7 @@ class WebsiteController extends Controller
                     'recipe_id' => $request->id
                 ]);
 
-                return redirect()->back();
+                return response('success', 200);
             break;
 
             default: abort(404, 'Tip nije validan');
