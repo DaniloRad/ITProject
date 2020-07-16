@@ -221,7 +221,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script defer>
-    $(window).on("load", function() {
+    $(window).on("load resize", function() {
 
         const dsi = $('.dynamical-small-img').parent();
 
