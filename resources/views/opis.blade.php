@@ -129,8 +129,6 @@
                     </li>
                     @endif
 
-                    
-                    
                 </div>
             </div>
 
@@ -138,14 +136,97 @@
         </nav>
     </div>
     <div class="uk-container uk-container-center">
-        <h1>Cao</h1>
-        <button>
-            <a href='/download'> 
-                <span class="light-black" uk-icon="download"></span> Preuzmi
-            </a>   
-        </button>
+        <h1>OPIS</h1>
+        <h3>PDF Verzija: 
+            <a href='/download' class="uk-button uk-button-primary"> 
+                <span uk-icon="download" ></span> Preuzmi PDF verziju opisa
+            </a> 
+        </h3>
+        <h4>Naš zadatak je bio kreiranje stranice za emisiju o kuvanju.
+            Sajt se sastoji iz dijela za običnog korisnika i za admin korisnika.
+            Prilikom pokretanja dat je prikaz početne strane gdje neprijavljeni korisnici mogu da vide ukratko sadržaj sajta.
+            To je lista 5 najznačajnijih emisija i 3 najznačajnija recepta po kriterijumu komentarisanosti.
+            Korisnik je u mogućnosti da klikom na dugme ode na strane koje izlistavaju emisije po tačno odredjenim kategorijama, sve emisije i strana na kojoj su svi recepti.
+            Korisnik ima mogućnost odlaska na stranicu pretrage, gdje mu je omogučena pretraga po bazi tj samom sajtu i koristeći neke od ponudjenih pretraživača.
+            Pretraga u bazi se vrši po imenima i opisima emisija i recepata.
+            Prijavljani obićni korisnik može ostavljati komentare na pojedinaćnim emisijama i receptima.
+            Admin korisnik ima širok dijapazon mogućnosti. Takav korisnik ima direktan uvid u emisije, recepte, komentare i korisnike.
+            Admin može brisati, dodavati i izmijeniti korisnika, emisiju ili recept. Dok takodje može izbrisati komentar koji krši politiku pravilnog ponašanja.
+            Neprijavljeni korisnik ima mogućnost registracije i mogućnost prijavljivanja, dok prijavljeni korisnik ima mogućnost odjavljivanja.
+        </h4>
+        <h2>ER Diagram</h2>
+        <img src="ERdiagram.png" alt="ER Diagram" width="500" height="600">
+        <h2>Spisak tabela i tipovi polja</h2>
+        <ul style="font-size:30px;">
+            <li>Users
+                <ul style="font-size:20px;">
+                    <li>id -> bigint(20) -> Auto_Increment</li>
+                    <li>name -> varchar(255)</li>
+                    <li>email -> varchar(255)</li>
+                    <li>password -> varchar(255)</li>
+                    <li>image -> varchar(255)</li>
+                    <li>role_id -> bigint(20) -> FOREIGNKEY_referencira_roles(id)</li>
+                    <li>active -> tinyint(1)</li>
+                  </ul>
+            </li>
+            <li>Videos
+                <ul style="font-size:20px;">
+                    <li>id -> bigint(20) -> Auto_Increment</li>
+                    <li>name -> varchar(255)</li>
+                    <li>videoURL -> varchar(255)</li>
+                    <li>active -> tinyint(1)</li>
+                    <li>episode -> int(11)</li>
+                    <li>seasone -> int(11)</li>
+                    <li>broadcast_date -> date</li>
+                    <li>description -> text</li>
+                    <li>category_id -> bigint(20) -> FOREIGNKEY_referencira_categories(id)</li>
+                    <li>image -> varchar(255)</li>
+                  </ul>
+            </li>
+            <li>Recipes
+                <ul style="font-size:20px;">
+                    <li>id -> bigint(20) -> Auto_Increment</li>
+                    <li>name -> varchar(255)</li>
+                    <li>image_url -> varchar(250)</li>
+                    <li>text -> text</li>
+                    <li>active -> tinyint(1)</li>
+                    <li>difficulty -> int(11)</li>
+                    <li>ingredients -> text</li>
+                    <li>steps -> text</li>
+                  </ul>
+            </li>
+            <li>Comments
+                <ul style="font-size:20px;">
+                    <li>Id -> bigint(20) -> Auto_Increment</li>
+                    <li>Text -> text</li>
+                    <li>active -> tinyint(1)</li>
+                    <li>created_at -> timestamp</li>
+                    <li>user_id -> bigint(20)  -> FOREIGNKEY_referencira_users(id)</li>
+                    <li>video_id -> bigint(20)  -> FOREIGNKEY_referencira_videos(id)</li>
+                    <li>recipe_id -> bigint(20)  -> FOREIGNKEY_referencira_recipes(id)</li>
+                  </ul>
+            </li>
+            <li>Categories
+                <ul style="font-size:20px;">
+                    <li>Id -> bigint(20) -> Auto_Increment</li>
+                    <li>Name -> varchar(255)</li>
+                    <li>Active -> tinyint(1)</li>
+                  </ul>
+            </li>
+            <li>Roles
+                <ul style="font-size:20px;">
+                    <li>id -> bigint(20) -> Auto_Increment</li>
+                    <li>name -> varchar(255)</li>
+                  </ul>
+            </li>
+        </ul>
+        <h2>Alati</h2>
+        <p style="font-size:20px;">Za prvi dio projekta korišteni su HTML CSS JavaScript za kreiranje izgleda dok je za uvezivanje MySQL baze sa frontom korišten Laravel PHP framework. </p>
+        <p style="font-size:20px;">Ovo je milenin dio</p>
+        
+        
     </div>
-
+    
 </body>
 <script src="{{asset('js/uikit.min.js')}}"></script>
     <script src="{{asset('js/uikit-icons.min.js')}}"></script>
@@ -156,7 +237,6 @@
         var cw = $('.dynamical-small-img').width();
         $('.dynamical-small-img').css({'height':cw+'px'});
         })
-        console.log("test")
         window.onload=main
         function main () {
             $(".uk-dropdown").click(function(){
