@@ -219,17 +219,20 @@
                 <span uk-icon="download" ></span> Preuzmi PDF verziju opisa
             </a> 
         </h3>
-        <h4>Naš zadatak je bio kreiranje stranice za emisiju o kuvanju.
-            Sajt se sastoji iz dijela za običnog korisnika i za admin korisnika.
-            Prilikom pokretanja dat je prikaz početne strane gdje neprijavljeni korisnici mogu da vide ukratko sadržaj sajta.
-            To je lista 5 najznačajnijih emisija i 3 najznačajnija recepta po kriterijumu komentarisanosti.
-            Korisnik je u mogućnosti da klikom na dugme ode na strane koje izlistavaju emisije po tačno odredjenim kategorijama, sve emisije i strana na kojoj su svi recepti.
-            Korisnik ima mogućnost odlaska na stranicu pretrage, gdje mu je omogučena pretraga po bazi tj samom sajtu i koristeći neke od ponudjenih pretraživača.
-            Pretraga u bazi se vrši po imenima i opisima emisija i recepata.
-            Prijavljani obićni korisnik može ostavljati komentare na pojedinaćnim emisijama i receptima.
-            Admin korisnik ima širok dijapazon mogućnosti. Takav korisnik ima direktan uvid u emisije, recepte, komentare i korisnike.
-            Admin može brisati, dodavati i izmijeniti korisnika, emisiju ili recept. Dok takodje može izbrisati komentar koji krši politiku pravilnog ponašanja.
-            Neprijavljeni korisnik ima mogućnost registracije i mogućnost prijavljivanja, dok prijavljeni korisnik ima mogućnost odjavljivanja.
+        <h4>Naš zadatak je bio kreiranje stranice za emisiju o kuvanju. 
+            Sajt se sastoji iz dijela za običnog korisnika i za admin korisnika. 
+            Prilikom pokretanja dat je prikaz početne strane gdje neprijavljeni korisnici mogu da vide ukratko sadržaj sajta. 
+            To je lista 5 najznačajnijih emisija i 3 najznačajnija recepta, gdje je kriterijum najveći broj komentara.
+            Korisnik je u mogućnosti da klikom na dugme ode na strane koje izlistavaju emisije po tačno odredjenim kategorijama, 
+            sve emisije i strana na kojoj su svi recepti. Korisnik ima mogućnost odlaska na stranicu pretrage,
+            gdje mu je omogućena pretraga po bazi, tj samom sajtu i koristeći neke od ponuđenih pretraživača. 
+            Pretraga u bazi se vrši po imenima i opisima emisija i recepata. 
+            Prijavljeni obični korisnik može ostavljati komentare na pojedinačnim emisijama i receptima. 
+            Admin korisnik ima širok dijapazon mogućnosti. Takav korisnik ima direktan uvid u emisije, recepte, komentare i korisnike. 
+            Admin može brisati, dodavati i izmijeniti korisnika, emisiju ili recept. 
+            Dok takođe može izbrisati komentar koji krši politiku pravilnog ponašanja. 
+            Neprijavljeni korisnik ima mogućnost registracije i mogućnost prijavljivanja, 
+            dok prijavljeni korisnik ima mogućnost odjavljivanja.
         </h4>
         <h2>ER Diagram</h2>
         <img src="ERdiagram.png" alt="ER Diagram" width="500" height="600">
@@ -298,8 +301,8 @@
             </li>
         </ul>
         <h2>Alati</h2>
-        <p style="font-size:20px;">Za prvi dio projekta korišteni su HTML CSS JavaScript za kreiranje izgleda dok je za uvezivanje MySQL baze sa frontom korišten Laravel PHP framework. </p>
-        <p style="font-size:20px;">Ovo je milenin dio</p>
+        <p style="font-size:20px;">Za prvi dio projekta korišćeni su HTML, CSS (UIkit) i JavaScript za kreiranje izgleda, dok je za povezivanje MySQL baze sa frontom korišten Laravel PHP framework.</p>
+        <p style="font-size:20px;">Za drugi dio projekta korišćen je isti izgled za prikazivanje početne stranice, stranice za logovanje i registraciju korisnika, dok je za back-end korišćen NodeJS koji je povezan na MongoDB bazu uz pomoć Mongoose-a.</p>
         
         
     </div>

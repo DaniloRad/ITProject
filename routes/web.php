@@ -28,7 +28,7 @@ Route::get('/opis', 'WebsiteController@description');
 
 Auth::routes();
 
-Route::get('download', function() { return response()->download('..\public\Opis.pdf'); });
+Route::get('download', function() { return response()->download('..\public\opis.pdf'); });
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/my-recipes', 'RecipeController@index');

@@ -221,7 +221,7 @@
                 <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
                     <div class="uk-width-1-1@m">
                         <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-                            <h3 class="uk-card-title uk-text-center">Welcome!</h3>
+                            <h3 class="uk-card-title uk-text-center">Dobro došli</h3>
                             <form method="post" action="{{route('register')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="uk-margin">
@@ -247,13 +247,13 @@
                                 <div class="js-upload" uk-form-custom>
                                     <img class="uk-comment-avatar uk-border-circle" src="../imgs/noImage.jpg" id="imagePlaceholder" width="80" height="80" alt="">
                                     <input placeholder="Slika" type="file" name="image" id="image" onchange="changeImage(event)" accept=".jpg,.png,.svg,.jpeg" required>
-                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Choose profile image</button>
+                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Izaberi profilnu sliku</button>
                                 </div>
                                 <div class="uk-margin" tabindex="0">
-                                    <button  class="uk-button uk-button-default-rose uk-button-large uk-width-1-1" type="submit">Register</button>
+                                    <button  class="uk-button uk-button-default-rose uk-button-large uk-width-1-1" type="submit">Registruj se</button>
                                 </div>
                                 <div class="uk-text-small uk-text-center">
-                                    Already registered? <a href="/login">Login</a>
+                                    Već registrovan? <a href="/login">Uloguj se</a>
                                 </div>
                             </form>
                         </div>

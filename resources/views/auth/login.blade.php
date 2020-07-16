@@ -220,7 +220,7 @@
                 <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
                     <div class="uk-width-1-1@m">
                         <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-                            <h3 class="uk-card-title uk-text-center">Welcome back!</h3>
+                            <h3 class="uk-card-title uk-text-center">Dobro došli nazad</h3>
                             <form action="{{route('login')}}" method="post">
                                 @csrf
                                 <div class="uk-margin">
@@ -239,10 +239,10 @@
 
                                 </div>
                                 <div class="uk-margin" tabindex="0">
-                                    <button class="uk-button uk-button-default-rose uk-button-large uk-width-1-1" type="submit">Login</button>
+                                    <button class="uk-button uk-button-default-rose uk-button-large uk-width-1-1" type="submit">Uloguj se</button>
                                 </div>
                                 <div class="uk-text-small uk-text-center">
-                                    Not registered? <a href="/register">Create an account</a>
+                                    Niste registrovani? <a href="/register">Napravite nalog</a>
                                 </div>
                             </form>
                         </div>
