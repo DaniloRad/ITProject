@@ -147,6 +147,9 @@ font-family: 'Poppins'!important;
 .uk-checkbox:checked, .uk-checkbox:indeterminate, .uk-radio:checked {
     background-color:#6f576f !important;
 }
-.uk-modal-dialog *,input,.uk-dropdown-nav *{
-    font-family: "Poppins";
+.uk-modal-dialog *,input,.uk-dropdown-nav *,#offcanvas-nav *,.uk-input,li{
+    font-family: "Poppins"!important;
+}
+.uk-navbar-toggle {
+    min-height: 50px!important;
 }

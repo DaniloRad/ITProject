@@ -14,6 +14,80 @@
 </head>
 
 <body>
+
+    <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar">
+
+            <ul class="uk-nav uk-nav-default">
+                    <li><a href="/" class="brand-link">
+                        <img src="{{asset('dist/img/Logo.png')}}" alt="Logo" style="opacity: .8; border-radius: 50%;" width="50" height="50">
+                    </a></li>
+                        <li>
+                            <a href="/">
+                                Pocetna
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/recepti">
+                                Recepti
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/emisije">
+                                Emisije
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/pretraga">Pretraga</a>
+                        </li>
+                        <li>
+                            <a href="/opis">Opis</a>
+                        </li>
+                   
+
+         
+                        @if(Auth::check())
+
+                        <li>
+                            <div class="uk-inline">
+                            <span uk-icon="user"></span>
+
+                            <a href="#">{{Auth::user()->name}}</a>
+                            </div>
+                        </li>
+
+                     
+
+                                        <li href="#modal-user-settings" uk-toggle><a href="#" onclick="openModal({{Auth::id()}})" ><span  uk-icon="settings"></span>Podesavanjna korisnika</a></li>
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();"> <span  uk-icon="sign-out"></span> Odjavi se</a></li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                   
+
+                        @else
+                        <li>
+                            <a href="/login">
+                                Prijava
+                            </a>
+                        </li>
+                        <li>
+
+                        </li>
+                        <li>
+                            <a href="/register">
+                                Registracija
+                            </a>
+                        </li>
+                        @endif
+
+
+
+            </ul>
+
+        </div>
+    </div>
     <div id="modal-user-settings" uk-modal>
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -49,31 +123,34 @@
             </div>
         </div>
     </div>
-    <div class="header" >
+    <div class="header">
 
         <nav class="uk-navbar-container uk-margin uk-margin-remove-vertical" uk-navbar>
-            <div class="uk-navbar-left">
+            
+        <button class="uk-button uk-button-default uk-hidden@m uk-margin uk-margin-top uk-margin-left uk-padding-remove" type="button" uk-toggle="target: #offcanvas-nav">
+                <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
+                </button>
+                <div class="uk-navbar-left uk-hidden@xs uk-visible@m">
+                
+
                 <a href="/" class="brand-link">
-                    <img src="{{asset('dist/img/Logo.png')}}"
-                         alt="Logo"
-                         style="opacity: .8; border-radius: 50%;"
-                         width="50" height="50">
+                    <img src="{{asset('dist/img/Logo.png')}}" alt="Logo" style="opacity: .8; border-radius: 50%;" width="50" height="50">
                 </a>
 
                 <ul class="uk-navbar-nav">
                     <li>
                         <a href="/">
-                           Pocetna
+                            Pocetna
                         </a>
                     </li>
                     <li>
                         <a href="/recepti">
-                           Recepti
+                            Recepti
                         </a>
                     </li>
                     <li>
                         <a href="/emisije">
-                           Emisije
+                            Emisije
                         </a>
                     </li>
                     <li>
@@ -84,34 +161,34 @@
                     </li>
                 </ul>
             </div>
-            
-            <div class="uk-navbar-right">
+
+            <div class="uk-navbar-right uk-hidden@xs uk-visible@m">
 
                 <div class="uk-navbar-nav">
 
-                    @if(Auth::check()) 
-                        <li>
-                            <a href="#">{{Auth::user()->name}}</a>
-                        </li>
+                    @if(Auth::check())
+                    <li>
+                        <a href="#">{{Auth::user()->name}}</a>
+                    </li>
 
-                        <li class="acc">
-                            <div class="uk-inline ">
-                             <span uk-icon="user"></span>
-                             <div uk-dropdown="mode: click">
-                                 <ul class="uk-nav uk-dropdown-nav">
-                                 
-                                     <li href="#modal-user-settings" uk-toggle><a href="#" onclick="openModal({{Auth::id()}})" class="light-black"><span class="light-black" uk-icon="settings"></span>Podesavanjna korisnika</a></li>
-                                     <li class="uk-nav-divider"></li>
-                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <li class="acc">
+                        <div class="uk-inline ">
+                            <span uk-icon="user"></span>
+                            <div uk-dropdown="mode: click">
+                                <ul class="uk-nav uk-dropdown-nav">
+
+                                    <li href="#modal-user-settings" uk-toggle><a href="#" onclick="openModal({{Auth::id()}})" class="light-black"><span class="light-black" uk-icon="settings"></span>Podesavanjna korisnika</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();" class="light-black"> <span class="light-black" uk-icon="sign-out"></span> Odjavi se</a></li>
-                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                         @csrf
-                                     </form> 
-                                 </ul>
-                             </div>
-                         </div>
-                         </li>
-     
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
                     @else
                     <li>
                         <a href="/login">
@@ -119,77 +196,83 @@
                         </a>
                     </li>
                     <li>
-                        
-                    </li>  <li>
+
+                    </li>
+                    <li>
                         <a href="/register">
-                           Registracija
+                            Registracija
                         </a>
                     </li>
                     @endif
 
-                    
-                    
+
+
                 </div>
             </div>
 
 
         </nav>
     </div>
-@yield('content')
+    @yield('content')
 
 </body>
 <script src="{{asset('js/uikit.min.js')}}"></script>
-    <script src="{{asset('js/uikit-icons.min.js')}}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{asset('js/uikit-icons.min.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script defer>
-     $(window).on("load resize", function () {
-      
-        const dsi=$('.dynamical-small-img').parent();
-        
+<script defer>
+    $(window).on("load", function() {
+
+        const dsi = $('.dynamical-small-img').parent();
+
 
         var cw = dsi.width()
         var ch = dsi.height()
-        let minC=Math.min(cw,ch);
-        $('.dynamical-small-img').css({'height':minC+'px','width':minC+'px'});
-        }) 
-        $(".uk-dropdown").click(function(){
-                UIkit.dropdown($(".uk-dropdown")).hide(0);
-            }) 
-        window.onload=main
-        function main () {
-            $(".uk-dropdown").click(function(){
-                UIkit.dropdown($(".uk-dropdown")).hide(0);
-            }) 
-        }
-    </script>
-    <script src="{{asset('sweetalert2.min.js')}}"></script>
+        let minC = Math.min(cw, ch);
+        $('.dynamical-small-img').css({
+            'height': minC + 'px',
+            'width': minC + 'px'
+        });
+    })
+    $(".uk-dropdown").click(function() {
+        UIkit.dropdown($(".uk-dropdown")).hide(0);
+    })
+    window.onload = main
 
-    <script>
-        function toast(type, message) {
-            Swal.mixin({
+    function main() {
+        $(".uk-dropdown").click(function() {
+            UIkit.dropdown($(".uk-dropdown")).hide(0);
+        })
+    }
+</script>
+<script src="{{asset('sweetalert2.min.js')}}"></script>
+
+<script>
+    function toast(type, message) {
+        Swal.mixin({
                 toast: true,
                 position: 'bottom-end',
                 showConfirmButton: false,
                 timer: 3000
             })
             .fire({
-            type: type,
-            title: message
+                type: type,
+                title: message
             });
-}
-        function openModal(id) {
+    }
 
-            $('#name').val();
-            $('#email').val();
+    function openModal(id) {
 
-            $.ajaxSetup({
-                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+        $('#name').val();
+        $('#email').val();
 
-            $.ajax({
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
                 url: '/user-info/' + id,
                 method: 'get',
                 processData: false,
@@ -203,28 +286,28 @@
             .fail(function() {
                 alert('Korisnik nije pronadjen');
             })
+    }
+
+    function updateUser() {
+        console.log('aaaaa');
+        var data = new FormData;
+        data.append('id', $('#userId').val());
+        data.append('name', $('#name').val());
+        data.append('email', $('#email').val());
+        if ($('#password').val() != '') {
+            data.append('password', $('#password').val())
+        }
+        if (typeof $('#image')[0].files[0] != 'undefined') {
+            data.append('image', $('#image')[0].files[0]);
         }
 
-        function updateUser() {
-            console.log('aaaaa');
-            var data = new FormData;
-            data.append('id', $('#userId').val());
-            data.append('name', $('#name').val());
-            data.append('email', $('#email').val());
-            if($('#password').val() != '') {
-                data.append('password', $('#password').val())
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-            if(typeof $('#image')[0].files[0] != 'undefined') {
-                data.append('image', $('#image')[0].files[0]);
-            }
+        });
 
-            $.ajaxSetup({
-                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
+        $.ajax({
                 url: '/update-user-info',
                 method: 'post',
                 data: data,
@@ -238,8 +321,8 @@
             .fail(function(returnData) {
                 var message = JSON.parse(returnData.responseText).errors;
                 toast('error', String(message[Object.keys(message)[0]]));
-            }) 
-        }
+            })
+    }
+</script>
 
-    </script>
 </html>
