@@ -138,7 +138,7 @@
     </div>
 
 
-    <div class="uk-container uk-container-center">
+    <div class="uk-container uk-container-center uk-height-viewport">
         <div uk-grid class="uk-flex-center width-1-1 uk-padding uk-margin-auto">
             <div class="uk-panel uk-width-1-1@xs uk-width-1-1@m uk-child-width-1-1 blog-box " uk-grid>
 

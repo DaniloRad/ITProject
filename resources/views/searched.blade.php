@@ -137,7 +137,7 @@
 
         </nav>
     </div>
-    <div class="uk-container uk-container-center">
+    <div class="uk-container uk-container-center uk-height-viewport">
         <div class="search-widgetc uk-padding">
            <form action="/search-by-term" method="get">
             @csrf
