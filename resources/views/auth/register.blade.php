@@ -28,21 +28,21 @@
                     <input type="hidden" value="{{Auth::id()}}" id="userId">
                     <li>
                         <label for="">Ime:</label>
-                        <input class="uk-input" type="text" id="name">
+                        <input class="uk-input" type="text" id="name" required>
                     </li>
                     <li class="uk-nav-divider"></li>
                     <li>
                         <label for="">Email:</label>
-                        <input class="uk-input" type="text" id="email">
+                        <input class="uk-input" type="text" id="email" required> 
                     </li>
                     <li class="uk-nav-divider"></li>
                     <li>
                         <label for="">Password:</label>
-                        <input class="uk-input" type="text" id="password">
+                        <input class="uk-input" type="text" id="password" required>
                     </li>
                     <li>
                         <label for="">Slika:</label>
-                        <input type="file" id="image" class="uk-input">
+                        <input type="file" id="image" class="uk-input" required>
                     </li>
                 </ul>
             </div>
@@ -152,24 +152,26 @@
                                 <div class="uk-margin">
                                     <div class="uk-inline uk-width-1-1">
                                         <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                        <input  placeholder="Ime" class="uk-input uk-form-large" type="text" name="name">	
+                                        <input  placeholder="Ime" class="uk-input uk-form-large" type="text" name="name" required>	
                                     </div>
                                 </div>
                                 <div class="uk-margin">
                                     <div class="uk-inline uk-width-1-1">
                                         <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                        <input placeholder="Email" class="uk-input uk-form-large" type="text" name="email">
+                                        <input placeholder="Email" class="uk-input uk-form-large" type="text" name="email" required>
                                     </div>
+                                    <span></span>
                                 </div>
                                 <div class="uk-margin">
                                     <div class="uk-inline uk-width-1-1">
                                         <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                        <input placeholder="Password" class="uk-input uk-form-large" name="password" type="password">	
-                                    </div>
+                                        <input placeholder="Password" class="uk-input uk-form-large" name="password" type="password" required>	
+                                    </div>                                    <span></span>
+
                                 </div>
                                 <div class="js-upload" uk-form-custom>
                                     <img class="uk-comment-avatar uk-border-circle" src="../imgs/noImage.jpg" id="imagePlaceholder" width="80" height="80" alt="">
-                                    <input placeholder="Slika" type="file" name="image" id="image" onchange="changeImage(event)" accept=".jpg,.png,.svg,.jpeg">
+                                    <input placeholder="Slika" type="file" name="image" id="image" onchange="changeImage(event)" accept=".jpg,.png,.svg,.jpeg" required>
                                     <button class="uk-button uk-button-default" type="button" tabindex="-1">Choose profile image</button>
                                 </div>
                                 <div class="uk-margin" tabindex="0">
@@ -206,6 +208,62 @@ function changeImage(event) {
 
 
 }
+function validateEmail(infoMessage) {
+        var temp = document.querySelectorAll('input[name="email"]')[0]
+        console.log(temp.parentElement.nextElementSibling)
+        if (temp.value.match("^(?!((.*\\.(@|\\.)+.*)|(.*-(-)+.*))$)[a-zA-Z0-9]([a-zA-Z0-9_\\-\\.]*)@(([a-zA-Z0-9_\\-]+)\\.([a-zA-Z])+)+$")) {
+            temp.classList.remove("error");
+            temp.classList.add("ok");
+            temp.parentElement.nextElementSibling.innerHTML = "It's good :)"
+            temp.parentElement.nextElementSibling.style.display = "block"
 
+        } else if (temp.value.length === 0) {
+            temp.parentElement.nextElementSibling.style.display = "none"
+            temp.parentElement.nextElementSibling.innerHTML = infoMessage
+            temp.classList.remove("ok");
+            temp.classList.remove("error");
+
+        } else {
+            temp.classList.remove("ok");
+
+            temp.classList.add("error");
+            temp.parentElement.nextElementSibling.innerHTML = "Your isn't good :("
+            temp.parentElement.nextElementSibling.style.display = "block"
+
+        }
+    }
+
+    function validatePassword(infoMessage) {
+        var temp = document.querySelectorAll('input[name="password"]')[0]
+        console.log(temp.value)
+        if (temp.value.match("^(?=.{8,})")) {
+            temp.classList.remove("error");
+            temp.classList.add("ok");
+            temp.parentElement.nextElementSibling.innerHTML = "It's good :)"
+            temp.parentElement.nextElementSibling.style.display = "block"
+
+        } else if (temp.value.length === 0) {
+            temp.parentElement.nextElementSibling.style.display = "none"
+            temp.parentElement.nextElementSibling.innerHTML = infoMessage
+            temp.classList.remove("ok");
+            temp.classList.remove("error");
+
+        } else {
+            temp.classList.remove("ok");
+
+            temp.classList.add("error");
+            temp.parentElement.nextElementSibling.innerHTML = "Your password isn't good enough :("
+            temp.parentElement.nextElementSibling.style.display = "block"
+
+        }
+    }
+    window.onload = main
+
+    function main() {
+        document.querySelectorAll('input[name="password"]')[0].addEventListener("blur", () => validatePassword(""))
+
+        document.querySelectorAll('input[name="email"]')[0].addEventListener("blur", () => validateEmail("infoMessage"))
+
+    }
 </script>
 </html>
