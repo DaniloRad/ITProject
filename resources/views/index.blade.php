@@ -8,75 +8,39 @@
         <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m" style="opacity:.9">
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/1.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/2.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/3.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/4.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/5.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/6.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/7.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/8.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
             <li>
                 <div class=" overlay-darker uk-height-medium uk-background-cover" data-src="./imgs/9.jpg" uk-img></div>
-                <div class="uk-position-center text-white">
-                    <div uk-slider-parallax="x: 100,-100">
-                        JEDITE KOD DZOA
-                    </div>
-                </div>
+                
             </li>
         </ul>
 
